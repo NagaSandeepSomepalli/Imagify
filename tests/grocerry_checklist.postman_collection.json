@@ -1,0 +1,772 @@
+{
+	"info": {
+		"_postman_id": "e95ad172-e242-470f-8983-2b09a39e08a2",
+		"name": "grocerry_checklist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "products by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"type": "text",
+								"value": "60bb72233723b733be08e21a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"name\": \"Santoor load 1\",\n        \"categoryType\": \"60bb779b3709b52acccffa32ssgsgsgs\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/products/60bb809ba6da937de27ed088",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"60bb809ba6da937de27ed088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"name\": \"pastries\",\n        \"categoryType\": \"60bb779b3709b52acccffa32\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/products/60bb79053e186710ceadce11",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"60bb79053e186710ceadce11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"name\": \"Santoor load 1\",\n        \"categoryType\": \"60bb779b3709b52acccffa32ssgsgsgs\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/products/60bb809ba6da937de27ed088",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"60bb809ba6da937de27ed088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"name\": \"Santoor load 1\",\n        \"categoryType\": \"60bb779b3709b52acccffa32ssgsgsgs\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bearer eciOiJIUzI1J9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgxMTg3LCJpYXQiOjE2MjI4OTcxODd9.iEDuzTW3lD_DujzM06G3VPI_nz06txxQPh3o7uQDEd4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "get category by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/category/60bb779b3709b52acccffa32",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"60bb779b3709b52acccffa32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/category/60bb779b3709b52acccffa32",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"60bb779b3709b52acccffa32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "payload",
+								"type": "text",
+								"value": "60bb72233723b733be08e21a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/category/60bbb6249989117e43d6c161",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"60bbb6249989117e43d6c161"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"value": "60bb72233723b733be08e21a",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shopping list",
+			"item": [
+				{
+					"name": "Add shopping list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping 2\",\n        \"shoppingStatus\":\"inprogress\",\n        \"products\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product_id\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product_id\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppinglist",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppinglist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shoppinglist by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"type": "text",
+								"value": "60bb72233723b733be08e21a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppinglist/60bbc0204592cd3e5f1a3d8d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppinglist",
+								"60bbc0204592cd3e5f1a3d8d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all shoppinglist",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "payload",
+								"type": "text",
+								"value": "60bb72233723b733be08e21a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppinglist/60bbc0204592cd3e5f1a3d8d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppinglist",
+								"60bbc0204592cd3e5f1a3d8d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete shopping list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "payload",
+								"type": "text",
+								"value": "60bb72233723b733be08e21a"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": {\n        \"name\": \"Santoor load 1\",\n        \"categoryType\": \"60bb779b3709b52acccffa32ssgsgsgs\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppinglist/60bbb575ec817f6a426d07f1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppinglist",
+								"60bbb575ec817f6a426d07f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Shopping list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping 1\",\n        \"shoppingStatus\":\"inprogress\",\n        \"products\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product_id\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product_id\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppingList/60bbb1e05a1a6e193ba32b86",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppingList",
+								"60bbb1e05a1a6e193ba32b86"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
