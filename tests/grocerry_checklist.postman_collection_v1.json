@@ -79,7 +79,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"product\": {\n        \"name\": \"pastries\",\n        \"categoryType\": \"60bb779b3709b52acccffa32\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
+							"raw": "{\n    \"product\": {\n        \"name\": \"cake\",\n        \"categoryType\": \"60bb779b3709b52acccffa32\",\n        \"description\": \"bakery items\",\n        \"unit\": \"nos\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -236,6 +236,68 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Favorite a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/60bb809ba6da937de27ed088/favorite",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"60bb809ba6da937de27ed088",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfavorite a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/60bb809ba6da937de27ed088/favorite",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"60bb809ba6da937de27ed088",
+								"favorite"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -271,6 +333,85 @@
 					"response": []
 				},
 				{
+					"name": "Edit user details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnMSIsImV4cCI6MTYyODEzOTE3OSwiaWF0IjoxNjIyOTU1MTc5fQ.9lyA4G-HsEvBa0ZP6WjTFviB4WaHXyTR2DyFTXZvlGA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg1\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "login",
 					"request": {
 						"auth": {
@@ -287,7 +428,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
+							"raw": "{\n    \"user\":{\n        \"username\":\"Nisarg1\",\n        \"email\":\"nisargdewang94@gmail.com\",\n        \"password\":\"admin@1234\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -430,7 +571,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"category\": {\n        \"name\": \"bakery\",\n        \"description\":\"bakery items\"\n    }\n}",
+							"raw": "{\n    \"category\": {\n        \"name\": \"grossery\",\n        \"description\":\"grossery items\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -565,7 +706,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping 2\",\n        \"shoppingStatus\":\"inprogress\",\n        \"products\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product_id\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product_id\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
+							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping 4\",\n        \"shoppingStatus\":\"inprogress\",\n        \"productsAdded\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -668,15 +809,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/shoppinglist/60bbc0204592cd3e5f1a3d8d",
+							"raw": "localhost:3000/api/shoppinglist",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"api",
-								"shoppinglist",
-								"60bbc0204592cd3e5f1a3d8d"
+								"shoppinglist"
 							]
 						}
 					},
@@ -728,6 +868,86 @@
 					"response": []
 				},
 				{
+					"name": "Add product in Shopping list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"content\": 2,\n            \"unit\": \"nos\",\n            \"product\": \"60bc47d97742735e3a8639cb\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppingList/60bc4c55786a6265476ca909/60bc47d97742735e3a8639cb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppingList",
+								"60bc4c55786a6265476ca909",
+								"60bc47d97742735e3a8639cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove product in Shopping list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmI3MjIzMzcyM2I3MzNiZTA4ZTIxYSIsInVzZXJuYW1lIjoibmlzYXJnIiwiZXhwIjoxNjI4MDgyMzE1LCJpYXQiOjE2MjI4OTgzMTV9.Ye24VHDsnzc0J2b1HGT7qbNmqG1zW3M71i5BmZ9EeLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/shoppingList/60bc4c55786a6265476ca909/60bc47d97742735e3a8639cb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoppingList",
+								"60bc4c55786a6265476ca909",
+								"60bc47d97742735e3a8639cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Update Shopping list",
 					"request": {
 						"auth": {
@@ -744,7 +964,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping 1\",\n        \"shoppingStatus\":\"inprogress\",\n        \"products\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product_id\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product_id\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
+							"raw": "{\n    \"shoppingList\":{\n        \"name\":\"diwali shopping\",\n        \"shoppingStatus\":\"inprogress\",\n        \"productsAdded\":[{\n            \"content\":10,\n            \"unit\":\"nos\",\n            \"product\":\"60bb809ba6da937de27ed088\",\n            \"status\":\"purchased\"\n        },{\n            \"product\":\"60bbb1a44af5b089395632b9\",\n            \"content\":10,\n            \"unit\":\"nos\"\n        }]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -752,7 +972,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/shoppingList/60bbb1e05a1a6e193ba32b86",
+							"raw": "localhost:3000/api/shoppingList/60bc4c55786a6265476ca909",
 							"host": [
 								"localhost"
 							],
@@ -760,7 +980,7 @@
 							"path": [
 								"api",
 								"shoppingList",
-								"60bbb1e05a1a6e193ba32b86"
+								"60bc4c55786a6265476ca909"
 							]
 						}
 					},

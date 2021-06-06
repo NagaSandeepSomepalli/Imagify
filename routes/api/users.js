@@ -5,10 +5,14 @@ var User = mongoose.model('User');
 var auth = require('../auth');
 
 router.get('/user', auth.required, function(req, res, next){
-  User.findById(req.payload.id).then(function(user){
-    if(!user){ return res.sendStatus(401); }
+  User.findById(req.payload.id).populate('favorites').exec(function(err, user){
 
-    return res.json({user: user.toAuthJSON()});
+    if(!user){ return res.sendStatus(401); }
+    let result = {}
+    result.username = user.username
+    result.email = user.email
+    result.favorites = user.favorites
+    return res.json({user: result});
   }).catch(next);
 });
 
