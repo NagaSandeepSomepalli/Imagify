@@ -3,28 +3,29 @@ var uniqueValidator = require('mongoose-unique-validator');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var secret = require('../config').secret;
+const { copyFileSync } = require('fs');
 
 var UserSchema = new mongoose.Schema({
-  username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
-  email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
+  username: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true },
+  email: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true },
   favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   hash: String,
   salt: String
-}, {timestamps: true});
+}, { timestamps: true });
 
-UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
+UserSchema.plugin(uniqueValidator, { message: 'is already taken.' });
 
-UserSchema.methods.validPassword = function(password) {
+UserSchema.methods.validPassword = function (password) {
   var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
   return this.hash === hash;
 };
 
-UserSchema.methods.setPassword = function(password){
+UserSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
-UserSchema.methods.generateJWT = function() {
+UserSchema.methods.generateJWT = function () {
   var today = new Date();
   var exp = new Date(today);
   exp.setDate(today.getDate() + 60);
@@ -36,7 +37,7 @@ UserSchema.methods.generateJWT = function() {
   }, secret);
 };
 
-UserSchema.methods.toAuthJSON = function(){
+UserSchema.methods.toAuthJSON = function () {
   return {
     username: this.username,
     email: this.email,
@@ -44,26 +45,28 @@ UserSchema.methods.toAuthJSON = function(){
   };
 };
 
-UserSchema.methods.favorite = function(id){
-  if(this.favorites.indexOf(id) === -1){
-    this.favorites.push(id);
+UserSchema.methods.favorite = function (id) {
+  if (this.favorites.indexOf(id) === -1) {
+    console.log(id, " id")
+    this.favorites = this.favorites.concat([id])
   }
-
-  return this.save();
+  console.log('---here to save ---', this.favorites)
+  return this.save(err => console.log(err));
 };
 
-UserSchema.methods.unfavorite = function(id){
-  this.favorites.remove(id);
-  return this.save();
+UserSchema.methods.unfavorite = function (id) {
+  console.log(this.favorites.indexOf(id))
+  this.favorites.splice(this.favorites.indexOf(id),1)
+  return this.save(err => {console.log(err)});
 };
 
-UserSchema.methods.isFavorite = function(id){
-  return this.favorites.some(function(favoriteId){
+UserSchema.methods.isFavorite = function (id) {
+  return this.favorites.some(function (favoriteId) {
     return favoriteId.toString() === id.toString();
   });
 };
 
-UserSchema.methods.toProfileJSONFor = function(user){
+UserSchema.methods.toProfileJSONFor = function (user) {
   return {
     username: this.username,
     bio: this.bio,

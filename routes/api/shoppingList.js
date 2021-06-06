@@ -34,7 +34,7 @@ router.get('/:shoppinglistId', auth.optional, function (req, res, next) {
         ShoppingList.findOne(req.params.shoppinglistId).populate({
             path: 'productsAdded.products',
             model: 'Product'
-        }).exec((err, results) => {    
+        }).exec((err, results) => {
             return res.json({ shoppinglist: results });
         }).catch(next);
     })
@@ -42,6 +42,7 @@ router.get('/:shoppinglistId', auth.optional, function (req, res, next) {
 
 // update shopping lists
 router.put('/:shoppinglistId', auth.required, function (req, res, next) {
+    console.log('---here 2')
     User.findById(req.payload.id).then((user) => {
         ShoppingList.findOne(req.params.shoppinglistId, (err, shoppingList) => {
             if (typeof req.body.shoppingList.name !== 'undefined') {
@@ -63,17 +64,34 @@ router.put('/:shoppinglistId', auth.required, function (req, res, next) {
     });
 });
 
-// delete shopping lists
-router.delete('/:shoppinglistId', auth.required, function (req, res, next) {
+// add new product to shopping list
+router.put('/:shoppinglistId/:productId', auth.required, function (req, res, next) {
+    console.log('--here in request')
     User.findById(req.payload.id).then(function (user) {
         if (!user) { return res.sendStatus(401); }
-
-        return ShoppingList.remove({ _id: req.params.shoppinglistId }).then(function () {
-            return res.sendStatus(204);
+        return ShoppingList.findOne({ _id: req.params.shoppinglistId }).exec(function (err, shoppinglist) {
+            shoppinglist.productsAdded = shoppinglist.productsAdded.concat(req.body.products)
+            shoppinglist.save((err, updated) => {
+                return res.json({ ShoppingList: shoppinglist.toJSONFor(user) })
+            }).catch(next);
         });
-
     }).catch(next);
 });
 
+// delete shopping lists
+router.delete('/:shoppinglistId/:productId', auth.required, function (req, res, next) {
+    User.findById(req.payload.id).then(function (user) {
+        let productId = req.params.productId
+        if (!user) { return res.sendStatus(401); }
+        return ShoppingList.findOne({ _id: req.params.shoppinglistId }).exec(function (err, shoppinglist) {
+            shoppinglist.productsAdded = shoppinglist.productsAdded.filter(function(value, index, arr){ 
+                return String(value.product) !== String(productId)
+            });
+            shoppinglist.save((err, updated) => {
+                return res.json({ ShoppingList: shoppinglist.toJSONFor(user) })
+            }).catch(next);
+        });
+    }).catch(next);
+});
 
 module.exports = router;

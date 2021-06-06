@@ -74,34 +74,34 @@ router.delete('/:productId', auth.required, function (req, res, next) {
 });
 
 // Favorite an product
-router.post('/:product/favorite', auth.required, function (req, res, next) {
-  var articleId = req.article._id;
+router.post('/:productId/favorite', auth.required, function (req, res, next) {
+  var productId = req.params.productId;
+  User.findById(req.payload.id).then(function (user) {
+    if (!user) { return res.sendStatus(401); }
+    Product.findOne({ _id: productId }, (err, product) => {
+      return user.favorite(productId).then(function () {
+        return product.updateFavoriteCount().then(function (product) {
+          return res.json({ product: product.toJSONFor(user) });
+        });
+      });
+    })
+  }).catch(err => console.log(err));
+});
+
+// Unfavorite an product
+router.delete('/:productId/favorite', auth.required, function (req, res, next) {
+  var productId = req.params.productId;
 
   User.findById(req.payload.id).then(function (user) {
     if (!user) { return res.sendStatus(401); }
-
-    return user.favorite(articleId).then(function () {
-      return req.article.updateFavoriteCount().then(function (article) {
-        return res.json({ article: article.toJSONFor(user) });
+    Product.findOne({ _id: productId }, (err, product) => {
+      return user.unfavorite(productId).then(function () {
+        return product.updateFavoriteCount().then(function (product) {
+          return res.json({ product: product.toJSONFor(user) });
+        });
       });
-    });
+    })
   }).catch(next);
 });
-
-// Unfavorite an article
-router.delete('/:article/favorite', auth.required, function (req, res, next) {
-  var articleId = req.article._id;
-
-  User.findById(req.payload.id).then(function (user) {
-    if (!user) { return res.sendStatus(401); }
-
-    return user.unfavorite(articleId).then(function () {
-      return req.article.updateFavoriteCount().then(function (article) {
-        return res.json({ article: article.toJSONFor(user) });
-      });
-    });
-  }).catch(next);
-});
-
 
 module.exports = router;

@@ -6,10 +6,19 @@ var ProductSchema = new mongoose.Schema({
   name: { type: String, unique: true },
   description: String,
   categoryType: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+  favoritesCount: {type: Number, default: 0},
   unit: String
 }, { timestamps: true });
 
 ProductSchema.plugin(uniqueValidator, { message: 'is already taken' });
+
+ProductSchema.methods.updateFavoriteCount = function() {
+  var product = this;
+  return User.count({favorites: {$in: [product._id]}}).then(function(count){
+    product.favoritesCount = count;
+    return product.save();
+  });
+};
 
 ProductSchema.methods.toJSONFor = function (user) {
   return {

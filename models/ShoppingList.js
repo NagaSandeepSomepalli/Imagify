@@ -9,7 +9,7 @@ var productSchema = new mongoose.Schema({
   },
   content: Number,
   unit: String,
-  products: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
+  product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
 }, { _id: false });
 
 var shoppinglistSchema = new mongoose.Schema({
