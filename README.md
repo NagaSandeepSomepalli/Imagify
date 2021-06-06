@@ -34,3 +34,9 @@ Requests are authenticated using the `Authorization` header with a valid JWT. We
 
 ## Test
 I have attached the postman collection in the test folder, you can import it in postman
+
+## Db import
+I have attached sample db dump file, import it by following command
+
+mongorestore --archive=grocery_checklist.zip --db=grocery_checklist --gzip
+
