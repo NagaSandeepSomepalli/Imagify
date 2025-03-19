@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="grocery_checklist">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/grocery_checklist.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
